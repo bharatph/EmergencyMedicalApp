@@ -16,7 +16,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res/layouts/activities',
+                            'src/main/res/layouts/cards',
+                            'src/main/res/layouts/contents',
+                            'src/main/res/layouts/items',
+                            'src/main/res/layouts/pages',
+                            'src/main/res/layouts',
+                            'src/main/res'
+                    ]
+        }
+    }
 }
+
 
 ext {
     support = '27.1.1'

@@ -9,11 +9,9 @@
         android:id="@+id/constraintLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,9 +20,11 @@
             android:layout_width="@dimen/user_image_small"
             android:layout_height="@dimen/user_image_small"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/user_content_description"
+            android:src="@drawable/default_user"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,6 +44,8 @@
                 android:id="@+id/headerUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fadingEdge="horizontal"
+                android:fadingEdgeLength="@dimen/textview_fading_edge_length"
                 android:text="@string/default_user_name" />
 
             <TextView
@@ -60,33 +62,34 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <Button
+        <ImageButton
             android:id="@+id/headerHelplineButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/header_helpline"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/headerHeartButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/header_heart" />
 
-        <Button
+        <ImageButton
             android:id="@+id/headerAlarmButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/header_alarm" />
 
-        <Button
+        <ImageButton
             android:id="@+id/headerNewsButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/header_news" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
