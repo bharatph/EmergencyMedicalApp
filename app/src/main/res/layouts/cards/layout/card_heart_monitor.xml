@@ -5,12 +5,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:layout_weight="0.7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_gravity="center"
+        android:layout_width="@dimen/image_medium"
+        android:layout_height="@dimen/image_medium" />
     <TextView
-        android:layout_weight="0.3"
-        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:text="@string/default_user_health"
+        android:layout_gravity="center"
+        android:transitionName="@string/transition_heart_hrm_name"
+        android:id="@+id/cardHeartHRM"
+        style="@style/AppTheme.HRM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

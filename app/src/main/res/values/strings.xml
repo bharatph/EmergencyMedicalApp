@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Emergency Medical App</string>
     <string name="default_user_name">John Doe</string>
-    <string name="default_user_health">-</string>
+    <string name="default_user_health">0%</string>
 
     <string name="user_content_description">User Image</string>
+
+    <!--transition names-->
+    <string name="transition_info_header_name">transition_card_header_text</string>
+    <string name="transition_heart_hrm_name">transition_heart_hrm_value</string>
 </resources>

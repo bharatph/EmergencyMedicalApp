@@ -1,8 +1,13 @@
 <resources>
 
+    <style name="AppTheme.HRM" parent="Base.TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/textview_size_large</item>
+    </style>
+
     <style name="AppTheme.ImageButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:padding">@dimen/button_padding_small</item>
+        <item name="android:padding">@dimen/view_padding_small</item>
     </style>
 
     <!-- Base application theme. -->

@@ -19,7 +19,9 @@
         <activity android:name=".HeartMonitorActivity" />
         <activity android:name=".NewsActivity" />
         <activity android:name=".AlarmActivity" />
-        <activity android:name=".HelplineActivity"></activity>
+        <activity android:name=".HelplineActivity" />
+        <activity android:name=".CheckListActivity" />
+        <activity android:name=".InfoActivity"></activity>
     </application>
 
 </manifest>

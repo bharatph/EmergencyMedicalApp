@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.example.laz3r.emergencymedicalapp"
-        minSdkVersion 15
+        minSdkVersion 26
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -24,7 +24,6 @@ android {
                             'src/main/res/layouts/cards',
                             'src/main/res/layouts/contents',
                             'src/main/res/layouts/items',
-                            'src/main/res/layouts/pages',
                             'src/main/res/layouts',
                             'src/main/res'
                     ]
@@ -39,6 +38,7 @@ ext {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:support-compat:$support"
     implementation "com.android.support:appcompat-v7:$support"
     implementation "com.android.support:recyclerview-v7:$support"
     implementation "com.android.support:cardview-v7:$support"

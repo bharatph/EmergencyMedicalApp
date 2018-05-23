@@ -1,8 +1,11 @@
 package com.example.laz3r.emergencymedicalapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -54,22 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         headerNewsButton.setOnClickListener(this);
     }
 
-    ArrayList<ViewGroup> getCards(){
-        ArrayList<ViewGroup> cards = new ArrayList<>();
-        ViewGroup heartMonitorCard = (ViewGroup)LayoutInflater.from(this).inflate(R.layout.card_heart_monitor, null);
-        heartMonitorCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context, HeartMonitorActivity.class));
-            }
-        });
-
-        cards.add((ViewGroup) LayoutInflater.from(this).inflate(R.layout.card_check_list, null));
-        cards.add(heartMonitorCard);
-        cards.add((ViewGroup) LayoutInflater.from(this).inflate(R.layout.card_info, null));
-        return cards;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,9 +66,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initializeLayout();
         assignListeners();
 
+        ArrayList<ViewGroup> cards = new ArrayList<>();
+
         //set up recycler view
-        cardRecyclerView.setAdapter(new MultipleCardAdapter(this, getCards()));
+        cardRecyclerView.setAdapter(new MultipleCardAdapter(this, cards));
         cardRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        final ViewGroup heartMonitorCard = (ViewGroup)LayoutInflater.from(this).inflate(R.layout.card_heart_monitor, null);
+        heartMonitorCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityOptionsCompat options =
+                        ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context,
+                                heartMonitorCard.findViewById(R.id.cardHeartHRM),
+                                getString(R.string.transition_heart_hrm_name)
+                        );
+                ActivityCompat.startActivity(context, new Intent(context, HeartMonitorActivity.class), options.toBundle());
+            }
+        });
+
+        cards.add((ViewGroup) LayoutInflater.from(this).inflate(R.layout.card_check_list, null));
+        cards.add(heartMonitorCard);
+        cards.add((ViewGroup) LayoutInflater.from(this).inflate(R.layout.card_info, null));
     }
 
     @Override
