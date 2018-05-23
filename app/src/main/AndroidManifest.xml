@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".HeartMonitorActivity" />
+        <activity android:name=".NewsActivity" />
+        <activity android:name=".AlarmActivity" />
+        <activity android:name=".HelplineActivity"></activity>
     </application>
 
 </manifest>
