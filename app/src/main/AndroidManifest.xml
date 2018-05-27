@@ -20,7 +20,7 @@
         <activity android:name=".NewsActivity" />
         <activity android:name=".AlarmActivity" />
         <activity android:name=".HelplineActivity" />
-        <activity android:name=".CheckListActivity" />
+        <activity android:name=".ListActivity" />
         <activity android:name=".InfoActivity"></activity>
     </application>
 

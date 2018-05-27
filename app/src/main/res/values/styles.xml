@@ -5,6 +5,12 @@
         <item name="android:textSize">@dimen/textview_size_large</item>
     </style>
 
+    <style name="AppTheme.ListText">
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">@dimen/textview_fading_edge_length</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
     <style name="AppTheme.ImageButton" parent="Widget.AppCompat.ImageButton">
         <item name="android:background">@android:color/transparent</item>
         <item name="android:padding">@dimen/view_padding_small</item>

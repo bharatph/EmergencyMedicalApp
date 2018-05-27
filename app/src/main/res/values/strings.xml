@@ -5,7 +5,15 @@
 
     <string name="user_content_description">User Image</string>
 
+    <!--list_activity-->
+    <string name="list_add_new_item">+ Add new item...</string>
+
     <!--transition names-->
-    <string name="transition_info_header_name">transition_card_header_text</string>
+    <string name="transition_list_header_name">transition_list_header_text</string>
     <string name="transition_heart_hrm_name">transition_heart_hrm_value</string>
+    <string name="transition_info_header_name">transition_info_header_text</string>
+    
+    <!--keys-->
+    <string name="extra_card_info_obj">cardInfoObj</string>
+    <string name="extra_card_list_obj">cardListObj</string>
 </resources>
