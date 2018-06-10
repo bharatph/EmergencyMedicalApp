@@ -19,6 +19,7 @@ import com.example.laz3r.emergencymedicalapp.model.CardModel;
 import com.example.laz3r.emergencymedicalapp.model.HeartRate;
 import com.example.laz3r.emergencymedicalapp.model.Info;
 import com.example.laz3r.emergencymedicalapp.model.List;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -89,7 +90,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         getString(R.string.transition_list_header_name)
                                 );
                         Intent int2 = new Intent(context, ListActivity.class);
-                        int2.putExtra(context.getString(R.string.extra_card_list_obj), 12);
+                        List list = new List("Allergies", UserInstace.getUser().getStringAllergies());
+                        Gson gson = new Gson();
+                        String ser = gson.toJson(list);
+                        int2.putExtra(context.getString(R.string.extra_card_list_obj), ser);
                         ActivityCompat.startActivity(context, int2, opt2.toBundle());
                         break;
                     case R.id.cardInfo:
@@ -108,8 +112,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ));
         cardRecyclerView.setLayoutManager(new
                 LinearLayoutManager(this));
-        cards.add(new HeartRate());
         cards.add(new List("Allergies", UserInstace.getUser().getStringAllergies()));
+        cards.add(new HeartRate());
         cards.add(new Info("Dynamic Cards", "Multiple cards can be added in this view"));
     }
 
@@ -126,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(context, AlarmActivity.class));
                 break;
             case R.id.headerNewsButton:
-                startActivity(new Intent(context, NewsActivity.class));
+                startActivity(new Intent(context, FeedsActivity.class));
                 break;
         }
     }

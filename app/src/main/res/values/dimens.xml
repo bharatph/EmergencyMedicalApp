@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="user_image_small">64dp</dimen>
-
+    <dimen name="image_small">64dp</dimen>
     <dimen name="image_medium">128dp</dimen>
+    <dimen name="image_landscape_height">256dp</dimen>
+
+    <dimen name="view_margin_medium">16dp</dimen>
+    <dimen name="view_margin_small">8dp</dimen>
 
     <dimen name="view_padding_large">24dp</dimen>
     <dimen name="view_padding_medium">16dp</dimen>

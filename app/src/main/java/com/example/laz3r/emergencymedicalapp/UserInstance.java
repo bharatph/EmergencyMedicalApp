@@ -17,7 +17,11 @@ class UserInstace {
 
     public static User getUser() {
         if(user == null){
-            user = new User(183, "1001", Gender.MALE, new Date(), 90, "Mr. Dummy", new ArrayList<Disease>(), new ArrayList<Allergy>(), BloodGroup.O_POS, new HeartState(83, 45.0));
+            ArrayList<Allergy> allergies = new ArrayList<>();
+            allergies.add(new Allergy("Sunflower", 23));
+            allergies.add(new Allergy("Shellfish", 45));
+            allergies.add(new Allergy("Dust", 78));
+            user = new User(183, "1001", Gender.MALE, new Date(), 90, "Mr. Dummy", new ArrayList<Disease>(), allergies, BloodGroup.O_POS, new HeartState(83, 45.0));
             //TODO load from firebase
         }
         return user;

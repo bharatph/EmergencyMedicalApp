@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/headerUserImage"
-            android:layout_width="@dimen/user_image_small"
-            android:layout_height="@dimen/user_image_small"
+            android:layout_width="@dimen/image_small"
+            android:layout_height="@dimen/image_small"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginBottom="8dp"

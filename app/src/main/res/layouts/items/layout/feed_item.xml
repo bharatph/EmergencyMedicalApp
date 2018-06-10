@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme.CardViewStyle"
+    android:layout_marginTop="@dimen/view_margin_small"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_margin="@dimen/view_margin_small"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:id="@+id/feedHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"/>
+        <ImageView
+            android:id="@+id/feedImageView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/image_landscape_height"
+            android:contentDescription="@string/feed_image_description" />
+        <com.example.laz3r.emergencymedicalapp.view.MarkdownTextView
+            android:id="@+id/feedContent"
+            android:layout_margin="@dimen/view_margin_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:text="@string/feed_image_description"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

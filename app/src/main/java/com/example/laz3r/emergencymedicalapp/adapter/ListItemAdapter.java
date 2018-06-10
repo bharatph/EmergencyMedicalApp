@@ -16,23 +16,25 @@ import java.util.ArrayList;
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListItemHolder>{
     private Context parent;
     private ArrayList<String> list;
-    ListItemAdapter(Context parent, ArrayList<String> list){
+    public ListItemAdapter(Context parent, ArrayList<String> list){
         this.parent = parent;
         this.list = list;
     }
     @NonNull
     @Override
     public ListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(this.parent).inflate(R.layout.list_item, parent);
+        View itemView = LayoutInflater.from(this.parent).inflate(R.layout.list_item, parent, false);
         return new ListItemHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListItemHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ListItemHolder holder, int position) {
+        final int pos = position;
         holder.itemRemoveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                list.remove(position);
+                list.remove(pos);
+                notifyDataSetChanged();
             }
         });
         holder.itemTextView.setText(list.get(position));
@@ -40,7 +42,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
 
     @Override
     public int getItemCount() {
-        return 0;
+        return list.size();
     }
 
     class ListItemHolder extends RecyclerView.ViewHolder{

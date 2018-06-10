@@ -13,10 +13,11 @@
         android:layout_weight="0.8"/>
 
     <ImageButton
+        style="@style/AppTheme.ImageButton"
+        android:tint="@android:color/darker_gray"
         android:id="@+id/itemRemoveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="0.2"
         android:src="@drawable/list_delete" />
 </LinearLayout>

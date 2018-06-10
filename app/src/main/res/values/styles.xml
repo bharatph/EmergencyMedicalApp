@@ -16,14 +16,28 @@
         <item name="android:padding">@dimen/view_padding_small</item>
     </style>
 
+    <style name="AppTheme.TextViewStyle" parent="TextAppearance.AppCompat">
+        <item name="android:fadingEdge">horizontal</item>
+        <item name="android:fadingEdgeLength">@dimen/textview_fading_edge_length</item>
+    </style>
+
+    <style name="AppTheme.CardViewStyle" parent="CardView">
+        <item name="cardCornerRadius">@dimen/card_corner_radius_medium</item>
+        <item name="cardElevation">@dimen/cardview_default_elevation</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="android:animateLayoutChanges">true</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
 
         <item name="imageButtonStyle">@style/Widget.AppCompat.Button.Borderless</item>
+        <item name="android:textViewStyle">@style/AppTheme.TextViewStyle</item>
     </style>
 
 </resources>

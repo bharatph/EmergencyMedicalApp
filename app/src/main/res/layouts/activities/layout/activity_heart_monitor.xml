@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSoftRed"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/view_margin_small"
+    style="@style/AppTheme.CardViewStyle"
+    android:backgroundTint="@color/colorSoftRed"
     tools:context=".HeartMonitorActivity">
-<TextView
-    android:layout_gravity="center"
-    android:id="@+id/cardHeartHRM"
-    android:text="@string/default_user_health"
-    android:transitionName="@string/transition_heart_hrm_name"
-    style="@style/AppTheme.HRM"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" />
-</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/view_padding_medium">
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/cardHeartHRM"
+            android:text="@string/default_user_health"
+            android:transitionName="@string/transition_heart_hrm_name"
+            style="@style/AppTheme.HRM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
