@@ -24,36 +24,26 @@ import com.example.laz3r.emergencymedicalapp.model.List;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, InfoFragment.OnFragmentInteractionListener {
 
     final private Context context = this;
 
-    ImageView headerUserImage;
-    TextView headerUserName;
-    TextView headerUserHealth;
+    @BindView(R.id.headerUserImage) ImageView headerUserImage;
+    @BindView(R.id.headerUserName) TextView headerUserName;
+    @BindView(R.id.headerUserHealth) TextView headerUserHealth;
 
-    ConstraintLayout userDetailsConstraintLayout;
+    @BindView(R.id.userDetailsConstraintLayout) ConstraintLayout userDetailsConstraintLayout;
 
-    ImageButton headerHelplineButton;
-    ImageButton headerHeartButton;
-    ImageButton headerAlarmButton;
-    ImageButton headerNewsButton;
+    @BindView(R.id.headerHelplineButton) ImageButton headerHelplineButton;
+    @BindView(R.id.headerHeartButton) ImageButton headerHeartButton;
+    @BindView(R.id.headerAlarmButton) ImageButton headerAlarmButton;
+    @BindView(R.id.headerNewsButton) ImageButton headerNewsButton;
 
-    RecyclerView cardRecyclerView;
-
-    void initializeLayout() {
-        headerUserImage = findViewById(R.id.headerUserImage);
-        headerUserName = findViewById(R.id.headerUserName);
-        headerUserHealth = findViewById(R.id.headerUserHealth);
-        userDetailsConstraintLayout = findViewById(R.id.userDetailsConstraintLayout);
-
-        headerHelplineButton = findViewById(R.id.headerHelplineButton);
-        headerHeartButton = findViewById(R.id.headerHeartButton);
-        headerAlarmButton = findViewById(R.id.headerAlarmButton);
-        headerNewsButton = findViewById(R.id.headerNewsButton);
-
-        cardRecyclerView = findViewById(R.id.cardRecyclerView);
-    }
+    @BindView(R.id.cardRecyclerView) RecyclerView cardRecyclerView;
 
     void assignListeners() {
         headerHelplineButton.setOnClickListener(this);
@@ -72,9 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //glue code to layout
-        initializeLayout();
+        ButterKnife.bind(this);
         assignListeners();
 
         ArrayList<CardModel> cards = new ArrayList<>();
@@ -92,6 +80,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cards.add(new List("Allergies", UserInstance.getUser().getStringAllergies()));
         cards.add(new HeartRate());
         cards.add(new Info("Dynamic Cards", "Multiple cards can be added in this view"));
+        cards.add(new List("Disease", UserInstance.getUser().getStringDiseases()));
+
     }
 
     @Override

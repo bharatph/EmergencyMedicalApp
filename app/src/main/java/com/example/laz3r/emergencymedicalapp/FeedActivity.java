@@ -15,15 +15,14 @@ import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FeedActivity extends AppCompatActivity {
 
-    ImageView contentImageView;
-    TextView contentTextView;
+    @BindView(R.id.feedImage) ImageView contentImageView;
+    @BindView(R.id.feedContent) TextView contentTextView;
 
-    void initialize(){
-        contentImageView = findViewById(R.id.feedImageFull);
-        contentTextView = findViewById(R.id.feedContentFull);
-    }
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -34,9 +33,9 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-        initialize();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.feedToolbar);
-        setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
+
+        setSupportActionBar((Toolbar) findViewById(R.id.feedToolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String jdata = getIntent().getStringExtra(getString(R.string.extra_feed));

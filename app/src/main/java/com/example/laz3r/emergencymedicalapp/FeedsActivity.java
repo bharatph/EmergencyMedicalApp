@@ -18,15 +18,15 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FeedsActivity extends AppCompatActivity {
 
     final private Context context = this;
     final private String TAG = "Feeds";
-    private RecyclerView recyclerView;
 
-    void initialize(){
-        recyclerView = findViewById(R.id.feedsRecyclerView);
-    }
+    @BindView(R.id.feedsRecyclerView) RecyclerView recyclerView;
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -38,13 +38,9 @@ public class FeedsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feeds);
+        ButterKnife.bind(this);
 
-        initialize();
-
-        Toolbar toolbar = findViewById(R.id.feedsToolbar);
-        toolbar.setTitle("");
-        toolbar.setBackground(null);
-        setSupportActionBar(toolbar);
+        setSupportActionBar((Toolbar) findViewById(R.id.feedsToolbar));
         getSupportActionBar().setTitle(R.string.feeds);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ArrayList<Feed> feeds = new ArrayList<>();

@@ -16,18 +16,16 @@ import com.example.laz3r.emergencymedicalapp.adapter.ListItemAdapter;
 import com.example.laz3r.emergencymedicalapp.model.List;
 import com.google.gson.Gson;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ListFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private View rootView;
 
-    TextView title = null;
-    RecyclerView recyclerView = null;
+    @BindView(R.id.listHeaderTextView) TextView title;
+    @BindView(R.id.listRecyclerView) RecyclerView recyclerView;
     private List list;
-
-    void initialize() {
-        recyclerView = rootView.findViewById(R.id.listRecyclerView);
-        title = rootView.findViewById(R.id.listHeaderTextView);
-    }
 
     private String mParam1;
 
@@ -56,13 +54,13 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_list, container, false);
-        initialize();
+        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        ButterKnife.bind(this, view);
         title.setText(list.getTitle());
         ListItemAdapter listItemAdapter = new ListItemAdapter(getContext(), list.getList());
         recyclerView.setAdapter(listItemAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        return rootView;
+        return view;
     }
 
     @Override

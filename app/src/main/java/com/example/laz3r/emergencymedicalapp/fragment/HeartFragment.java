@@ -13,26 +13,16 @@ import com.example.laz3r.emergencymedicalapp.R;
 import com.example.laz3r.emergencymedicalapp.model.HeartRate;
 import com.google.gson.Gson;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HeartFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link HeartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class HeartFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
-    private View rootView;
-    private TextView hrmTextView;
-    private View pulseView;
+    @BindView(R.id.heartHRM)
+    TextView hrmTextView;
+    //@BindView(R.id.pulseView) View pulseView;
 
     private HeartRate mParam1;
-
-    void initialize() {
-        hrmTextView = rootView.findViewById(R.id.heartHRM);
-        //pulseView = rootView.findViewById(R.id.heartPulseView);
-    }
 
     public HeartFragment() {
         // Required empty public constructor
@@ -58,10 +48,9 @@ public class HeartFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_heart, container, false);
-        // Inflate the layout for this fragment
-        initialize();
-        return rootView;
+        View view = inflater.inflate(R.layout.fragment_heart, container, false);
+        ButterKnife.bind(this, view);
+        return view;
     }
 
 
