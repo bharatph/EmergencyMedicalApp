@@ -3,9 +3,9 @@ package com.example.laz3r.emergencymedicalapp.model;
 
 import java.io.Serializable;
 
-public class CardModel implements Serializable {
+public class CardModel extends Object implements Serializable {
     
-    private String id;
+    protected String id;
 
     public CardModel(String id) {
         this.id = id;

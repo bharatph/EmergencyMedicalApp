@@ -14,13 +14,9 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".HeartMonitorActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".FeedsActivity"
             android:screenOrientation="portrait" />
@@ -30,13 +26,8 @@
         <activity
             android:name=".HelplineActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".ListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".InfoActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".UserProfileActivity" />
+        <activity android:name=".UserProfileActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".FeedActivity"
             android:screenOrientation="portrait"

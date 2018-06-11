@@ -13,7 +13,6 @@
 
     <!--transition names-->
     <string name="transition_list_header_name">transition_list_header_text</string>
-    <string name="transition_heart_hrm_name">transition_heart_hrm_value</string>
     <string name="transition_info_header_name">transition_info_header_text</string>
 
     <!--keys-->
@@ -21,7 +20,11 @@
     <string translatable="false" name="extra_card_list_obj">cardListObj</string>
     <string translatable="false" name="extra_feed">feed</string>
 
-    <!--image description-->
+    <!--description-->
+    <string name="chat_button_description">Help Bot</string>
+    <string name="heart_button_description">Heart Rate Monitor</string>
+    <string name="alarm_button_description">Event Reminder</string>
+    <string name="news_button_description">News Feed</string>
     <string name="feed_image_description">Feed Image</string>
 
     <!--sample-->

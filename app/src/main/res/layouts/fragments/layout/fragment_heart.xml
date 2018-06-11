@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardHeart"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorSoftRed"
+    android:orientation="vertical"
+    tools:context=".fragment.HeartFragment">
+
+    <ImageView
+        android:layout_width="@dimen/image_medium"
+        android:layout_height="@dimen/image_medium"
+        android:layout_gravity="center"
+        android:src="@drawable/header_heart"
+        android:tint="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/heartHRM"
+        style="@style/AppTheme.HRM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/default_user_health"/>
+</LinearLayout>

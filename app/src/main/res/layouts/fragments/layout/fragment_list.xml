@@ -5,15 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/view_padding_large"
-    tools:context=".ListActivity">
+    tools:context=".fragment.ListFragment">
 
     <TextView
-        android:text="@string/app_name"
         android:id="@+id/listHeaderTextView"
-        android:transitionName="@string/transition_list_header_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:padding="@dimen/view_padding_small"
+        android:gravity="start"
         app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v7.widget.CardView
@@ -47,8 +46,8 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    style="@style/AppTheme.ListText"
                     android:id="@+id/listAddNewButton"
+                    style="@style/AppTheme.ListText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/list_add_new_item" />

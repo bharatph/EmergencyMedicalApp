@@ -12,7 +12,7 @@ import com.example.laz3r.emergencymedicalapp.model.User;
 import java.util.ArrayList;
 import java.util.Date;
 
-class UserInstace {
+class UserInstance {
     private static User user;
 
     public static User getUser() {
