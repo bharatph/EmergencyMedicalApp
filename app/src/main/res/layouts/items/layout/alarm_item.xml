@@ -4,57 +4,66 @@
     style="@style/AppTheme.CardViewStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <LinearLayout
-        android:padding="@dimen/view_padding_small"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/view_padding_small">
 
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/alarmName"
-                android:gravity="start"
-                android:layout_weight="1"
-                android:text="@string/toolbar_alarm_add"
+                android:id="@+id/alarmItemName"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/view_padding_small"/>
-            <ImageButton
-                android:src="@drawable/ic_chat"
-                android:tint="@android:color/black"
+                android:layout_margin="@dimen/view_padding_small"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="@string/toolbar_alarm_add" />
+
+            <com.github.zagum.switchicon.SwitchIconView
+                android:id="@+id/alarmItemRepeatButton"
+                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:si_animation_duration="500"
+                app:si_disabled_color="#b7b7b7"
+                app:si_tint_color="@android:color/black"
+                app:si_no_dash="true"
+                app:srcCompat="@drawable/alarm_repeat" />
         </LinearLayout>
 
         <TextView
-            android:text="6:43am"
-            android:layout_margin="@dimen/view_margin_small"
             style="@style/Base.TextAppearance.AppCompat.Display2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/view_margin_small"
+            android:text="6:43am" />
+
         <TextView
-            android:textSize="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/view_margin_small"
             android:text="M T W T F S S"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:textSize="24dp" />
 
         <com.rm.rmswitch.RMSwitch
-            android:id="@+id/alarmSwitch"
+            android:id="@+id/alarmItemSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/view_margin_small"
+            app:forceAspectRatio="true"
+            android:textSize="20sp"
             app:switchDesign="large"
-            app:switchToggleNotCheckedColor="@android:color/darker_gray"
             app:switchToggleCheckedColor="@color/colorAccent"
-            android:textSize="20sp"/>
+            app:switchToggleNotCheckedColor="@android:color/darker_gray" />
     </LinearLayout>
 
 

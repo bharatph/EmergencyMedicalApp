@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.laz3r.emergencymedicalapp.R;
 import com.example.laz3r.emergencymedicalapp.model.Alarm;
+import com.github.zagum.switchicon.SwitchIconView;
 import com.rm.rmswitch.RMSwitch;
 
 import java.util.ArrayList;
@@ -35,8 +36,14 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.Alar
     @Override
     public void onBindViewHolder(@NonNull AlarmListHolder holder, int position) {
         Alarm alarm = alarms.get(position);
-        holder.alarmName.setText(alarm.getAlarmName());
-        holder.alarmSwitch.setChecked(alarm.getIsAlarmOn());
+        holder.alarmItemName.setText(alarm.getAlarmName());
+        holder.alarmItemSwitch.setChecked(alarm.getIsAlarmOn());
+        holder.alarmItemRepeatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((SwitchIconView)v).switchState();
+            }
+        });
     }
 
     @Override
@@ -45,10 +52,12 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.Alar
     }
 
     class AlarmListHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.alarmName)
-        TextView alarmName;
-        @BindView(R.id.alarmSwitch)
-        RMSwitch alarmSwitch;
+        @BindView(R.id.alarmItemName)
+        TextView alarmItemName;
+        @BindView(R.id.alarmItemRepeatButton)
+        SwitchIconView alarmItemRepeatButton;
+        @BindView(R.id.alarmItemSwitch)
+        RMSwitch alarmItemSwitch;
 
         AlarmListHolder(View itemView) {
             super(itemView);
