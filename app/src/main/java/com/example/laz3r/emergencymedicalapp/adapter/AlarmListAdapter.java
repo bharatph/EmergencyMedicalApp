@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import com.example.laz3r.emergencymedicalapp.R;
 import com.example.laz3r.emergencymedicalapp.model.Alarm;
-import com.example.laz3r.emergencymedicalapp.model.Content;
-import com.github.angads25.toggle.LabeledSwitch;
+import com.rm.rmswitch.RMSwitch;
 
 import java.util.ArrayList;
 
@@ -37,7 +36,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.Alar
     public void onBindViewHolder(@NonNull AlarmListHolder holder, int position) {
         Alarm alarm = alarms.get(position);
         holder.alarmName.setText(alarm.getAlarmName());
-        holder.alarmSwitch.setOn(alarm.getIsAlarmOn());
+        holder.alarmSwitch.setChecked(alarm.getIsAlarmOn());
     }
 
     @Override
@@ -49,7 +48,7 @@ public class AlarmListAdapter extends RecyclerView.Adapter<AlarmListAdapter.Alar
         @BindView(R.id.alarmName)
         TextView alarmName;
         @BindView(R.id.alarmSwitch)
-        LabeledSwitch alarmSwitch;
+        RMSwitch alarmSwitch;
 
         AlarmListHolder(View itemView) {
             super(itemView);

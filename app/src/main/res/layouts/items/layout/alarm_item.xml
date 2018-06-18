@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:padding="@dimen/view_padding_small"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,7 +35,7 @@
         <TextView
             android:text="6:43am"
             android:layout_margin="@dimen/view_margin_small"
-            android:textSize="64dp"
+            style="@style/Base.TextAppearance.AppCompat.Display2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -44,15 +45,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <com.github.angads25.toggle.LabeledSwitch
+        <com.rm.rmswitch.RMSwitch
             android:id="@+id/alarmSwitch"
-            android:layout_width="130dp"
-            android:layout_height="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/view_margin_small"
-            android:textSize="20sp"
-            app:colorBorder="@color/colorAccent"
-            app:on="true" />
+            app:switchDesign="large"
+            app:switchToggleNotCheckedColor="@android:color/darker_gray"
+            app:switchToggleCheckedColor="@color/colorAccent"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 
