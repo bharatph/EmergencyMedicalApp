@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<item android:title="@string/toolbar_alarm_add"
+    android:iconTint="@color/colorAccent"
+    android:icon="@drawable/toolbar_add"
+    android:id="@+id/alarmAdd"
+    app:showAsAction="ifRoom"
+    />
+</menu>

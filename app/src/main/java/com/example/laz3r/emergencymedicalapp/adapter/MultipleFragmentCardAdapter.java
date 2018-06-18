@@ -24,6 +24,8 @@ import com.example.laz3r.emergencymedicalapp.model.HeartRate;
 import java.util.ArrayList;
 import java.util.Random;
 
+import butterknife.BindView;
+
 public class MultipleFragmentCardAdapter extends RecyclerView.Adapter<MultipleFragmentCardAdapter.MultipleFragmentCardHolder> {
 
     private ArrayList<CardModel> cardViews;
@@ -40,7 +42,7 @@ public class MultipleFragmentCardAdapter extends RecyclerView.Adapter<MultipleFr
     @Override
     public MultipleFragmentCardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(this.parent).inflate(R.layout.card_item_base, parent, false);
-        itemView.setId(itemView.generateViewId());
+        itemView.setId(View.generateViewId());
         return new MultipleFragmentCardHolder(itemView);
     }
 
@@ -59,7 +61,7 @@ public class MultipleFragmentCardAdapter extends RecyclerView.Adapter<MultipleFr
     }
 
     class MultipleFragmentCardHolder extends RecyclerView.ViewHolder {
-        private CardView cardItem;
+        CardView cardItem;
 
         public MultipleFragmentCardHolder(View itemView) {
             super(itemView);

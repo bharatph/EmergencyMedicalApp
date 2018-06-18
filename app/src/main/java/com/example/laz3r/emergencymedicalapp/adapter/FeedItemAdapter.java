@@ -19,6 +19,9 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.FeedItemHolder> {
     private Context parent;
     private ArrayList<Feed> feeds;
@@ -60,15 +63,13 @@ public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.FeedIt
     }
 
     class FeedItemHolder extends RecyclerView.ViewHolder{
-        TextView headerTextView;
-        ImageView imageView;
-        MarkdownTextView markdownTextView;
+        @BindView(R.id.feedHeaderTextView) TextView headerTextView;
+        @BindView(R.id.feedImageView) ImageView imageView;
+        @BindView(R.id.feedContent) MarkdownTextView markdownTextView;
 
         private FeedItemHolder(View itemView) {
             super(itemView);
-            headerTextView = itemView.findViewById(R.id.feedHeaderTextView);
-            imageView = itemView.findViewById(R.id.feedImageView);
-            markdownTextView = itemView.findViewById(R.id.feedContent);
+            ButterKnife.bind(this, itemView);
         }
     }
 }

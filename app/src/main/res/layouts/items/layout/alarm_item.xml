@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/AppTheme.CardViewStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/alarmName"
+                android:gravity="start"
+                android:layout_weight="1"
+                android:text="@string/toolbar_alarm_add"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/view_padding_small"/>
+            <ImageButton
+                android:src="@drawable/ic_chat"
+                android:tint="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:text="6:43am"
+            android:layout_margin="@dimen/view_margin_small"
+            android:textSize="64dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="24dp"
+            android:layout_margin="@dimen/view_margin_small"
+            android:text="M T W T F S S"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.github.angads25.toggle.LabeledSwitch
+            android:id="@+id/alarmSwitch"
+            android:layout_width="130dp"
+            android:layout_height="65dp"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/view_margin_small"
+            android:textSize="20sp"
+            app:colorBorder="@color/colorAccent"
+            app:on="true" />
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

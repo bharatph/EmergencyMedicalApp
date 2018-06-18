@@ -13,6 +13,9 @@ import com.example.laz3r.emergencymedicalapp.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListItemHolder>{
     private Context parent;
     private ArrayList<String> list;
@@ -46,12 +49,11 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
     }
 
     class ListItemHolder extends RecyclerView.ViewHolder{
-        TextView itemTextView;
-        ImageButton itemRemoveButton;
-        public ListItemHolder(View itemView) {
+        @BindView(R.id.itemTextView) TextView itemTextView;
+        @BindView(R.id.itemRemoveButton) ImageButton itemRemoveButton;
+        ListItemHolder(View itemView) {
             super(itemView);
-            itemTextView = itemView.findViewById(R.id.itemTextView);
-            itemRemoveButton = itemView.findViewById(R.id.itemRemoveButton);
+            ButterKnife.bind(this, itemView);
         }
     }
 }
