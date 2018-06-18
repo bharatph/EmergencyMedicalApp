@@ -12,7 +12,9 @@
         android:layout_gravity="center"
         android:layout_weight="0.8"/>
 
-    <ImageButton
+    <ImageView
+        android:layout_margin="@dimen/view_margin_small"
+        android:clickable="true"
         style="@style/AppTheme.ImageButton"
         android:tint="@android:color/darker_gray"
         android:id="@+id/itemRemoveButton"

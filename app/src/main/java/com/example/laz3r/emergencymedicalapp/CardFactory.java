@@ -5,9 +5,11 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 
+import com.example.laz3r.emergencymedicalapp.fragment.BodyWaterLevelFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.HeartFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.InfoFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.ListFragment;
+import com.example.laz3r.emergencymedicalapp.model.BodyWaterLevel;
 import com.example.laz3r.emergencymedicalapp.model.CardModel;
 import com.example.laz3r.emergencymedicalapp.model.HeartRate;
 import com.example.laz3r.emergencymedicalapp.model.Info;
@@ -21,11 +23,13 @@ public class CardFactory {
         String id = model.getId();
         if (id.equals("heart")) {
             HeartRate heartRate = (HeartRate) model;
-            return HeartFragment.newInstance(gson.toJson((HeartRate)model));
+            return HeartFragment.newInstance(gson.toJson((HeartRate) model));
         } else if (id.equals("list")) {
-            return ListFragment.newInstance(gson.toJson((List)model));
+            return ListFragment.newInstance(gson.toJson((List) model));
         } else if (id.equals("info")) {
-            return InfoFragment.newInstance(gson.toJson((Info)model));
+            return InfoFragment.newInstance(gson.toJson((Info) model));
+        } else if (id.equals("waterLevel")) {
+            return BodyWaterLevelFragment.newInstance(gson.toJson((BodyWaterLevel)model));
         } else {
             return new Fragment();
         }

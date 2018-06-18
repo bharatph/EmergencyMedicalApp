@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.laz3r.emergencymedicalapp.R;
@@ -16,13 +17,15 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListItemHolder>{
+public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListItemHolder> {
     private Context parent;
     private ArrayList<String> list;
-    public ListItemAdapter(Context parent, ArrayList<String> list){
+
+    public ListItemAdapter(Context parent, ArrayList<String> list) {
         this.parent = parent;
         this.list = list;
     }
+
     @NonNull
     @Override
     public ListItemHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -48,9 +51,12 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ListIt
         return list.size();
     }
 
-    class ListItemHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.itemTextView) TextView itemTextView;
-        @BindView(R.id.itemRemoveButton) ImageButton itemRemoveButton;
+    class ListItemHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.itemTextView)
+        TextView itemTextView;
+        @BindView(R.id.itemRemoveButton)
+        ImageView itemRemoveButton;
+
         ListItemHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

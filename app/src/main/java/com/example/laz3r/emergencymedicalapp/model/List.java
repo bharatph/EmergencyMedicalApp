@@ -10,7 +10,7 @@ public class List extends CardModel {
     private ArrayList<String> list;
 
     public List(String title, ArrayList<String> list) {
-        super("list");
+        super("list", false);
         this.title = title;
         this.list = list;
     }

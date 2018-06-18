@@ -6,7 +6,7 @@ public class HeartRate extends CardModel {
 
     private HeartState heartState;
     public HeartRate() {
-        super("heart");
+        super("heart", false);
     }
 
     public void setHeartState(HeartState heartState) {

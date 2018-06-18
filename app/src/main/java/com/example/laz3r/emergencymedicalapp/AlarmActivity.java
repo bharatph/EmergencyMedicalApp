@@ -58,6 +58,8 @@ public class AlarmActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar((Toolbar) findViewById(R.id.alarmToolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //TODO save and retreive from internet
         ArrayList<Alarm> alarms = new ArrayList<>();
         alarms.add(new Alarm(true, "Home", new Date(), true));

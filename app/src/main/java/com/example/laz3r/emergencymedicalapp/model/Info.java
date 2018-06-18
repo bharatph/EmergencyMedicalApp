@@ -9,7 +9,7 @@ public class Info extends CardModel {
     private String message;
 
     public Info(String message, String title) {
-        super("info");
+        super("info", true);
         this.message = message;
         this.title = title;
     }

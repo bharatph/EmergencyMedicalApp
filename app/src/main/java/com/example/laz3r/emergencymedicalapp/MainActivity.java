@@ -14,9 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.laz3r.emergencymedicalapp.adapter.MultipleFragmentCardAdapter;
+import com.example.laz3r.emergencymedicalapp.fragment.BodyWaterLevelFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.HeartFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.InfoFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.ListFragment;
+import com.example.laz3r.emergencymedicalapp.model.BodyWaterLevel;
 import com.example.laz3r.emergencymedicalapp.model.CardModel;
 import com.example.laz3r.emergencymedicalapp.model.HeartRate;
 import com.example.laz3r.emergencymedicalapp.model.Info;
@@ -28,7 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, InfoFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, InfoFragment.OnFragmentInteractionListener, BodyWaterLevelFragment.OnFragmentInteractionListener {
 
     final private Context context = this;
 
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cards.add(new HeartRate());
         cards.add(new Info("Dynamic Cards", "Multiple cards can be added in this view"));
         cards.add(new List("Disease", UserInstance.getUser().getStringDiseases()));
+        cards.add(new BodyWaterLevel(2710, 20));
 
     }
 

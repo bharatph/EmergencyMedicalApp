@@ -57,9 +57,9 @@ public class ListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         ButterKnife.bind(this, view);
         title.setText(list.getTitle());
-        ListItemAdapter listItemAdapter = new ListItemAdapter(getContext(), list.getList());
+        ListItemAdapter listItemAdapter = new ListItemAdapter(getActivity(), list.getList());
         recyclerView.setAdapter(listItemAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         return view;
     }
 
