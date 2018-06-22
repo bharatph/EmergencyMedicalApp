@@ -1,4 +1,4 @@
-package com.example.laz3r.emergencymedicalapp.model;
+package com.example.laz3r.emergencymedicalapp.model.alarm;
 
 
 import java.util.Date;

@@ -3,55 +3,48 @@ package com.example.laz3r.emergencymedicalapp;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.laz3r.emergencymedicalapp.adapter.MultipleFragmentCardAdapter;
+import com.example.laz3r.emergencymedicalapp.adapter.MainViewPagerAdapter;
+import com.example.laz3r.emergencymedicalapp.fragment.BaseFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.BodyWaterLevelFragment;
+import com.example.laz3r.emergencymedicalapp.fragment.DashboardFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.HeartFragment;
+import com.example.laz3r.emergencymedicalapp.fragment.HelplineFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.InfoFragment;
-import com.example.laz3r.emergencymedicalapp.fragment.ListFragment;
-import com.example.laz3r.emergencymedicalapp.model.BodyWaterLevel;
 import com.example.laz3r.emergencymedicalapp.model.CardModel;
-import com.example.laz3r.emergencymedicalapp.model.HeartRate;
-import com.example.laz3r.emergencymedicalapp.model.Info;
-import com.example.laz3r.emergencymedicalapp.model.List;
-
-import java.util.ArrayList;
+import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, InfoFragment.OnFragmentInteractionListener, BodyWaterLevelFragment.OnFragmentInteractionListener {
 
     final private Context context = this;
+    ResourceManager resourceManager = ResourceManager.getInstance();
+    @BindView(R.id.userDetailsConstraintLayout)
+    ConstraintLayout userDetailsConstraintLayout;
+    @BindView(R.id.mainTabLayout)
+    TabLayout mainTabLayout;
+    @BindView(R.id.mainViewPager)
+    ViewPager mainViewPager;
 
-    @BindView(R.id.headerUserImage) ImageView headerUserImage;
-    @BindView(R.id.headerUserName) TextView headerUserName;
-    @BindView(R.id.headerUserHealth) TextView headerUserHealth;
-
-    @BindView(R.id.userDetailsConstraintLayout) ConstraintLayout userDetailsConstraintLayout;
-
-    @BindView(R.id.headerHelplineButton) ImageButton headerHelplineButton;
-    @BindView(R.id.headerHeartButton) ImageButton headerHeartButton;
-    @BindView(R.id.headerAlarmButton) ImageButton headerAlarmButton;
-    @BindView(R.id.headerNewsButton) ImageButton headerNewsButton;
-
-    @BindView(R.id.cardRecyclerView) RecyclerView cardRecyclerView;
+    private int[] tabIcons = {
+            R.drawable.header_dashboard,
+            R.drawable.header_helpline,
+            R.drawable.header_heart,
+            R.drawable.header_alarm,
+            R.drawable.header_feed
+    };
 
     void assignListeners() {
-        headerHelplineButton.setOnClickListener(this);
-        headerHeartButton.setOnClickListener(this);
-        headerAlarmButton.setOnClickListener(this);
-        headerNewsButton.setOnClickListener(this);
         userDetailsConstraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,48 +53,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    private void setupViewPager() {
+        MainViewPagerAdapter adapter = new MainViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new DashboardFragment(), "Dashboard");
+        adapter.addFrag(new HelplineFragment(), "Helpline");
+        adapter.addFrag(new HeartFragment(), "Heart");
+        adapter.addFrag(new AlarmFragment(), "Alarm");
+        adapter.addFrag(new FeedsFragment(), "Feeds");
+        mainViewPager.setAdapter(adapter);
+    }
+
+    private void setupTabIcons() {
+        mainTabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        mainTabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        mainTabLayout.getTabAt(2).setIcon(tabIcons[2]);
+        mainTabLayout.getTabAt(3).setIcon(tabIcons[3]);
+        mainTabLayout.getTabAt(4).setIcon(tabIcons[4]);
+    }
+
+    private void setupTabDescriptions() {
+        //TODO update tabs with descriptions
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         assignListeners();
+        setupViewPager();
+        mainTabLayout.setupWithViewPager(mainViewPager);
+        setupTabIcons();
+        setupTabDescriptions();
+    }
 
-        ArrayList<CardModel> cards = new ArrayList<>();
 
-        //set up recycler view
-        cardRecyclerView.setAdapter(new MultipleFragmentCardAdapter(this, cards, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        }
-        ));
-        cardRecyclerView.setLayoutManager(new
-                LinearLayoutManager(this));
-        cards.add(new List("Allergies", UserInstance.getUser().getStringAllergies()));
-        cards.add(new HeartRate());
-        cards.add(new Info("Dynamic Cards", "Multiple cards can be added in this view"));
-        cards.add(new List("Disease", UserInstance.getUser().getStringDiseases()));
-        cards.add(new BodyWaterLevel(2710, 20));
-
+    public void showFragment(BaseFragment fragmentClass, CardModel model) {
+        //TODO open fragment in fullscreen
+        Gson gson = new Gson();
+        BaseFragment fragment = fragmentClass.newInstance(gson.toJson(model));
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.headerHelplineButton:
-                startActivity(new Intent(context, HelplineActivity.class));
-                break;
-            case R.id.headerHeartButton:
-                //startActivity(new Intent(context, HeartMonitorActivity.class));
-                break;
-            case R.id.headerAlarmButton:
-                startActivity(new Intent(context, AlarmActivity.class));
-                break;
-            case R.id.headerNewsButton:
-                startActivity(new Intent(context, FeedsActivity.class));
-                break;
+
         }
     }
 

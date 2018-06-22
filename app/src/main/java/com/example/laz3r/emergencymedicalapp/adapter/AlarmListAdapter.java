@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.laz3r.emergencymedicalapp.R;
-import com.example.laz3r.emergencymedicalapp.model.Alarm;
+import com.example.laz3r.emergencymedicalapp.model.alarm.Alarm;
 import com.github.zagum.switchicon.SwitchIconView;
 import com.rm.rmswitch.RMSwitch;
 
