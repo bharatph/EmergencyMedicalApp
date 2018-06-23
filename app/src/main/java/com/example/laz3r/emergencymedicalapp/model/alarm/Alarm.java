@@ -7,17 +7,28 @@ public class Alarm {
 
     private String alarmName;
 
+    private Date alarmDate;
+
     private boolean isAlarmOn;
 
     private boolean shouldRepeat;
 
     private Date repeatRange;
 
-    public Alarm(boolean isAlarmOn, String alarmName, Date repeatRange, boolean shouldRepeat) {
+    public Alarm(boolean isAlarmOn, Date alarmDate, String alarmName, Date repeatRange, boolean shouldRepeat) {
         this.isAlarmOn = isAlarmOn;
         this.alarmName = alarmName;
+        this.alarmDate = alarmDate;
         this.repeatRange = repeatRange;
         this.shouldRepeat = shouldRepeat;
+    }
+
+    public Date getAlarmDate() {
+        return alarmDate;
+    }
+
+    public void setAlarmDate(Date alarmDate) {
+        this.alarmDate = alarmDate;
     }
 
     public String getAlarmName() {

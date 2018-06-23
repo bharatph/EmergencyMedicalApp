@@ -30,12 +30,11 @@ public class AlarmFragment extends Fragment {
         ButterKnife.bind(this, view);
         //TODO save and retreive from internet
         ArrayList<Alarm> alarms = new ArrayList<>();
-        alarms.add(new Alarm(true, "Home", new Date(), true));
-        alarms.add(new Alarm(false, "Office", new Date(), true));
-        alarms.add(new Alarm(true, "Home", new Date(), true));
-        alarms.add(new Alarm(true, "Office", new Date(), true));
-        alarms.add(new Alarm(true, "Home", new Date(), true));
-        alarms.add(new Alarm(false, "Office", new Date(), true));
+        alarms.add(new Alarm(true, new Date(),"Home", new Date(), true));
+        alarms.add(new Alarm(false, new Date(),"Office", new Date(), true));
+        alarms.add(new Alarm(true, new Date(),"Home", new Date(), true));
+        alarms.add(new Alarm(false, new Date(),"Office", new Date(), true));
+        alarms.add(new Alarm(false, new Date(),"Office", new Date(), true));
         recyclerView.setAdapter(new AlarmListAdapter(getContext(), alarms));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
