@@ -5,6 +5,15 @@ import java.util.Date;
 
 public class Alarm {
 
+    public enum AlarmType {
+        PILL,
+        APPOINTMENT,
+        EXCERCISE,
+        WATER
+    }
+
+    private AlarmType alarmType;
+
     private String alarmName;
 
     private Date alarmDate;
@@ -15,12 +24,21 @@ public class Alarm {
 
     private Date repeatRange;
 
-    public Alarm(boolean isAlarmOn, Date alarmDate, String alarmName, Date repeatRange, boolean shouldRepeat) {
+    public Alarm(boolean isAlarmOn, Date alarmDate, String alarmName, AlarmType alarmType, Date repeatRange, boolean shouldRepeat) {
         this.isAlarmOn = isAlarmOn;
         this.alarmName = alarmName;
         this.alarmDate = alarmDate;
+        this.alarmType = alarmType;
         this.repeatRange = repeatRange;
         this.shouldRepeat = shouldRepeat;
+    }
+
+    public void setAlarmType(AlarmType alarmType) {
+        this.alarmType = alarmType;
+    }
+
+    public AlarmType getAlarmType() {
+        return alarmType;
     }
 
     public Date getAlarmDate() {

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.eftimoff.viewpagertransformers.ParallaxPageTransformer;
 import com.example.laz3r.emergencymedicalapp.adapter.MainViewPagerAdapter;
 import com.example.laz3r.emergencymedicalapp.fragment.BaseFragment;
 import com.example.laz3r.emergencymedicalapp.fragment.BodyWaterLevelFragment;
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.addFrag(new AlarmFragment(), "Alarm");
         adapter.addFrag(new FeedsFragment(), "Feeds");
         mainViewPager.setAdapter(adapter);
+        //mainViewPager.setPageTransformer(true, new ParallaxPageTransformer(R.id.headerUserName));
     }
 
     private void setupTabIcons() {

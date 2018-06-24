@@ -29,7 +29,7 @@
     <string name="feed_image_description">Feed Image</string>
 
     <!--toolbar action titles-->
-    <string name="toolbar_alarm_add">Add alarm</string>
+    <string name="toolbar_alarm_add">Add Event</string>
 
     <!--sample-->
     <string name="feed_image_sample">https://www.star2.com/wp-content/uploads/2017/09/healthcare-770x470.jpg</string>

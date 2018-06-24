@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import com.example.laz3r.emergencymedicalapp.adapter.AlarmListAdapter;
 import com.example.laz3r.emergencymedicalapp.model.alarm.Alarm;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,11 +32,17 @@ public class AlarmFragment extends Fragment {
         ButterKnife.bind(this, view);
         //TODO save and retreive from internet
         ArrayList<Alarm> alarms = new ArrayList<>();
-        alarms.add(new Alarm(true, new Date(),"Home", new Date(), true));
-        alarms.add(new Alarm(false, new Date(),"Office", new Date(), true));
-        alarms.add(new Alarm(true, new Date(),"Home", new Date(), true));
-        alarms.add(new Alarm(false, new Date(),"Office", new Date(), true));
-        alarms.add(new Alarm(false, new Date(),"Office", new Date(), true));
+        SimpleDateFormat sdf = new SimpleDateFormat("H:m");
+        try {
+
+            alarms.add(new Alarm(true, sdf.parse("6:43"),"Home", Alarm.AlarmType.PILL, new Date(), true));
+            alarms.add(new Alarm(false, sdf.parse("14:25"),"Dentist Checkup", Alarm.AlarmType.APPOINTMENT,new Date(), true));
+            alarms.add(new Alarm(false, sdf.parse("23:24"),"Daily Excecise", Alarm.AlarmType.EXCERCISE, new Date(), true));
+            alarms.add(new Alarm(true, sdf.parse("10:03"),"Regular checkup", Alarm.AlarmType.APPOINTMENT, new Date(), true));
+            alarms.add(new Alarm(false, new Date(),"Office", Alarm.AlarmType.PILL, new Date(), true));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         recyclerView.setAdapter(new AlarmListAdapter(getContext(), alarms));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;

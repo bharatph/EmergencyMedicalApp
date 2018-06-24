@@ -14,7 +14,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap">
 
             <include
                 layout="@layout/main_header"

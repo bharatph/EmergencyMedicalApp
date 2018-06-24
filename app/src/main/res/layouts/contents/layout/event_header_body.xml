@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alarmBodyCard"
+    android:elevation="@dimen/cardview_default_elevation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/view_margin_small"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:text="Repeat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.savvyapps.togglebuttonlayout.ToggleButtonLayout
+            android:id="@+id/toggle_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_marginBottom="16dp"
+            app:multipleSelection="true"
+            app:toggleMode="even"
+            app:menu="@menu/days_select_toggle_menu"/>
+    </LinearLayout>
+</FrameLayout>

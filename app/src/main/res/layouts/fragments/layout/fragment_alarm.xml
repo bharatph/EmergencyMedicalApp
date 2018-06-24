@@ -10,4 +10,15 @@
         android:id="@+id/alarmRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+    <com.aniket.mutativefloatingactionbutton.MutativeFab
+        android:id="@+id/eventFab"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/view_margin_small"
+        android:layout_height="wrap_content"
+        app:fabIcon="@drawable/event_add"
+        app:fabText="@string/toolbar_alarm_add"
+        android:layout_alignParentBottom="true"
+        app:fabBackgroundColor="@android:color/white"
+        app:fabTextColor="@android:color/black"
+        android:layout_alignParentEnd="true"/>
 </RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mdayBtn"
+        android:title="M"
+        android:contentDescription="Monday" />
+
+    <item
+        android:id="@+id/tDayBtn"
+        android:title="T"
+        android:contentDescription="Tuesday"/>
+
+    <item
+        android:id="@+id/wDayBtn"
+        android:title="W"
+        android:contentDescription="Wednesday"/>
+    <item
+        android:id="@+id/thDayBtn"
+        android:title="Th"
+        android:contentDescription="Thursday"/>
+
+    <item
+        android:id="@+id/fDayBtn"
+        android:title="F"
+        android:contentDescription="Friday"/>
+    <item
+        android:id="@+id/saDayBtn"
+        android:title="Sa"
+        android:contentDescription="Saturday"/>
+    <item
+        android:id="@+id/suDayBtn"
+        android:title="Su"
+        android:contentDescription="Sunday"/>
+</menu>
